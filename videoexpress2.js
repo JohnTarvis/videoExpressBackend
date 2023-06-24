@@ -3,19 +3,23 @@
 import apis from "./apis.js";
 import express from "express";
 
+import cors from 'cors';
+
 const app = express();
 const PORT = 3333;
 
 let searchTerm = 'cats';
 let limit = 10;
 
+app.use(cors());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 ////////////////////////////////////////////////////////////
-
-// app.get('/', async (req, res) => {
-
-//   console.log('HOME');
-
-// });
 
 app.get("/", (req, res) => res.type('html').send(html));
 const html = `
