@@ -9,7 +9,7 @@ const app = express();
 const PORT = 3333;
 
 let searchTerm = 'cats';
-let limit = 10;
+let limit = 33;
 
 app.use(cors());
 
